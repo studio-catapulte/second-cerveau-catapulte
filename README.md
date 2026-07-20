@@ -37,6 +37,10 @@ Les skills vivent dans `.claude/skills/`. C'est un dossier caché, donc invisibl
 
 ## Démarrage
 
+**Sur Windows :** suis [`INSTALL-WINDOWS.md`](INSTALL-WINDOWS.md), qui reprend tout pas à pas depuis zéro (tu peux copier les commandes directement depuis cette page GitHub, avant même d'avoir cloné quoi que ce soit).
+
+**Sur macOS ou Linux :**
+
 1. **Clone** ce repo en local :
    ```
    git clone <url du repo> "Second Cerveau"
