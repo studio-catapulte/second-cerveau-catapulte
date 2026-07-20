@@ -2,11 +2,11 @@
 status: active
 ---
 
-Période estimée : [À remplir lors de /init]
+Période estimée : [À remplir lors de /initialisation]
 
 ## Mon intention
 
-[Cette note sera remplie automatiquement lors de l'initialisation du vault avec /init]
+[Cette note sera remplie automatiquement lors de l'initialisation du vault avec /initialisation]
 
 ## Ma journée idéale pendant cette période
 

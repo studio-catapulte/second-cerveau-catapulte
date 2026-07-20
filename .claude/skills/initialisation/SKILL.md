@@ -130,11 +130,13 @@ Une fois les deux noms recueillis :
 
 ### Écrire : patcher le CLAUDE.md
 
-Dès maintenant, patche le nom de l'IA et le prénom dans le `CLAUDE.md` (détail complet du sed à l'Étape 12.1) :
+Dès maintenant, patche le nom de l'IA et le prénom dans le `CLAUDE.md` (détail complet à l'Étape 12.1) :
 
-```bash
-sed -i '' "s/\[Nom IA\]/[Nom choisi]/g; s/\[Prénom\]/[Prénom]/g" CLAUDE.md
-```
+Utilise l'outil **Edit** (pas `sed`) sur `CLAUDE.md` à la racine, avec `replace_all` :
+- `[Nom IA]` → le nom choisi
+- `[Prénom]` → le prénom recueilli
+
+> N'utilise jamais `sed -i` ici : la syntaxe diffère entre macOS (BSD) et Windows/Linux (GNU), et le skill doit marcher sur les deux. L'outil Edit est portable.
 
 Dis à l'utilisateur : « J'ai enregistré ton prénom et le nom de l'IA (« [Nom IA] ») dans CLAUDE.md. À partir de maintenant je me réfère à moi sous ce nom. » Puis passe à l'Étape 3.
 
@@ -450,11 +452,9 @@ Remplace partout les placeholders `[Nom IA]` et `[Prénom]` par les vraies valeu
 Fichier à patcher :
 - `CLAUDE.md` à la racine du vault
 
-Utilise un sed ou une édition directe. Exemple :
-
-```bash
-sed -i '' "s/\[Nom IA\]/[Nom choisi]/g; s/\[Prénom\]/[Prénom]/g" CLAUDE.md
-```
+Utilise l'outil **Edit** avec `replace_all` (jamais `sed -i` : la syntaxe diffère entre macOS et Windows/Linux) :
+- `[Nom IA]` → le nom choisi
+- `[Prénom]` → le prénom recueilli
 
 L'IA se présente et se réfère à elle-même sous ce nom dans toutes les interactions.
 

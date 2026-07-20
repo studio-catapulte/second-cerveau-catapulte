@@ -36,7 +36,7 @@ Life Phases/
 
 | # | Nom | Période | Status |
 |---|-----|---------|--------|
-| 1 | Phase initiale | [À définir lors de /init] | active |
+| 1 | Phase initiale | [À définir lors de /initialisation] | active |
 
 ## Phase actuelle
 

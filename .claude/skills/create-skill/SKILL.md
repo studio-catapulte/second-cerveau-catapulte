@@ -106,7 +106,7 @@ Lequel ?
 
 ### Étape 6 : Validation du nom skill
 
-Valide le nom contre la regex OpenCode + Claude Code : `^[a-z0-9]+(-[a-z0-9]+)*$`, 1-64 caractères, pas de `--` consécutifs, pas de `-` au début ou à la fin.
+Valide le nom contre la regex Claude Code : `^[a-z0-9]+(-[a-z0-9]+)*$`, 1-64 caractères, pas de `--` consécutifs, pas de `-` au début ou à la fin.
 
 Si le nom proposé est invalide, propose une version corrigée (ex : « Post LinkedIn » → `post-linkedin`).
 
@@ -263,7 +263,7 @@ Si l'utilisateur accepte, lance une exécution test avec un input qu'il te donne
 
 - Créer un skill sans exemples concrets (Étape 3 obligatoire)
 - Générer un skill « bonnes pratiques internet » sans la méthode de l'utilisateur
-- Créer dans `.opencode/commands/` ou `.claude/commands/` (formats obsolètes)
+- Créer ailleurs que dans `.claude/skills/[nom]/SKILL.md` (c'est le seul emplacement lu par ce vault)
 - Oublier les wikilinks croisés fiche ↔ skill
 - Lancer Firecrawl de toi-même : seulement si l'utilisateur cite explicitement une méthode externe
 - Écrire la frontmatter avec `allowed-tools` (non reconnu pour les skills, sera ignoré)

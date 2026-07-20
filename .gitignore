@@ -1,1 +1,17 @@
+# OS
 .DS_Store
+Thumbs.db
+
+# Obsidian : état local de l'interface, propre à chaque machine
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.trash/
+
+# Claude Code : réglages et caches locaux
+.claude/settings.local.json
+.claude/statsig/
+.claude/todos/
+
+# Divers
+node_modules/
+.env

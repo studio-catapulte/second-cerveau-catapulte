@@ -21,7 +21,7 @@ Structure attendue :
 ```
 2 CASQUETTES/Sur ma vie/Life Phases/
 ├── Life Phases.md
-└── 1 Ma première phase/
+└── 1 Phase initiale/
     └── 1 Intention.md
 ```
 

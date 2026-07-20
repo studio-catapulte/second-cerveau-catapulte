@@ -55,7 +55,7 @@ Le repo est un **template** : après le clone, c'est ton vault. Tu n'as pas beso
 - **Claude Code** (abonnement Claude Pro ou Max).
 - **Obsidian**, avec **Lean Terminal** (terminal intégré), **Excalidraw** (schémas) et **Hidden Folders Access** (voir `.claude/skills/`).
 - **Firecrawl** (MCP, plan gratuit) pour scraper le web (utile quand tu construiras ta veille), voir `/connect-mcp`.
-- **yt-dlp** (optionnel) pour les transcripts YouTube.
+- **Node.js** (LTS), requis par les MCP qui tournent via `npx` — dont Firecrawl.
 
 > Le plugin **Lean Terminal - Escape Fix** est fourni dans `.obsidian/plugins/`. Sans lui, Obsidian intercepte la touche Échap et tu ne peux pas interrompre Claude Code depuis le terminal intégré.
 
@@ -63,3 +63,4 @@ Le repo est un **template** : après le clone, c'est ton vault. Tu n'as pas beso
 
 - Structure **à plat** assumée : le vault et le répertoire de travail de l'agent sont le même dossier. La variante imbriquée (un WORKSPACE parent pouvant héberger d'autres projets à côté du vault) est conservée sur la branche `structure-imbriquee`.
 - Les instructions de l'agent sont dans un **unique `CLAUDE.md`** à la racine.
+- `.claude/settings.json` pré-autorise les opérations courantes de l'agent (lire et écrire des notes, `ls`, `find`, `mkdir`, `git commit`) pour éviter une demande de confirmation à chaque geste. `rm` et `git push` restent bloqués. À ajuster si tu veux un cadre plus strict ou plus large.
