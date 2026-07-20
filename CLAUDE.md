@@ -15,13 +15,9 @@ Ce dossier est à la fois son vault Obsidian et ton répertoire de travail : un 
 3 RESSOURCES/   # Références, inspirations (brut, raw)
 4 TOOLS/        # Templates et process documentés
 5 ARCHIVE/      # Terminé ou inactif
-6 GARDEN/       # Notes permanentes (Zettelkasten) : concepts atomiques et MOCs
-│   └── Notes/   # Notes permanentes + MOCs (cartes de contenu)
 _Import/        # Notes à reclasser
 .claude/skills/ # Les skills : tes commandes
 ```
-
-`6 GARDEN/` est la couche durable : pensée distillée, reformulée, densément connectée. Différent de `3 RESSOURCES/` qui contient le brut (articles sauvegardés, highlights, transcripts).
 
 Chaque projet et casquette est un dossier avec une note de contexte principale plus des notes liées.
 

@@ -1,6 +1,6 @@
 # Second Cerveau — template Catapulte
 
-Un second cerveau personnel dans un vault Obsidian local, piloté par un agent (Claude Code). Capture ta matière, structure-la, et lance des skills qui produisent de vrais livrables (synthèse de veille, revues, notes permanentes).
+Un second cerveau personnel dans un vault Obsidian local, piloté par un agent (Claude Code). Capture ta matière, structure-la, et lance des skills qui produisent de vrais livrables (synthèse de veille, revues, notes de projet).
 
 Base : template second cerveau d'[Eliott Meunier](https://github.com/EliottMeunierFluid/templatesecondcerveau) (MIT), généralisé et outillé par Studio Catapulte.
 
@@ -18,7 +18,6 @@ Un seul dossier : c'est à la fois ton vault Obsidian et le répertoire depuis l
 ├── 3 RESSOURCES/        # références, inspirations (brut)
 ├── 4 TOOLS/             # templates et process documentés
 ├── 5 ARCHIVE/           # terminé
-├── 6 GARDEN/            # notes permanentes (Zettelkasten) et MOCs
 ├── _Import/             # notes à reclasser
 └── CLAUDE.md            # les instructions de l'agent
 ```
@@ -32,7 +31,7 @@ Les skills vivent dans `.claude/skills/`. C'est un dossier caché, donc invisibl
 - **`/initialisation`** — configure le vault avec toi au démarrage (ton nom, ton contexte).
 - **`/create-skill`** — construire TES propres skills. Un bon premier exercice : ton skill de veille (mapper ton process de veille, puis le figer en commande réutilisable).
 - **`/daily-review`, `/weekly-review`, `/new-life-phase`** — journaling et revues.
-- **`/inbox-processor`, `/import`, `/notes-permanentes`, `/map-process`** — traitement et structuration.
+- **`/inbox-processor`, `/import`, `/map-process`** — traitement et structuration.
 - **`/new-automation`, `/connect-mcp`** — étendre l'agent (brancher des outils/MCP, automatiser).
 - **`/done`, `/thinking-partner`, `/research-assistant`, `/de-ai-ify`** — clôture de session, réflexion, recherche, nettoyage de style.
 
