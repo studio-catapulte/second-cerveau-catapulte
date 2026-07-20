@@ -31,8 +31,21 @@ De zéro jusqu'à ton second cerveau opérationnel. Tu coches au fur et à mesur
 
 Ton second cerveau est un dossier versionné avec Git : c'est ce qui permet de récupérer le vault, et c'est ce que `/done` utilise pour enregistrer chaque session. Il installe aussi Git Bash, le terminal que Claude Code préfère sur Windows.
 
+**Téléchargement direct (recommandé)** - ne dépend d'aucun outil système, ne demande jamais de mot de passe administrateur :
+
+1. Va sur https://git-scm.com/download/win
+2. Clique « 64-bit Git for Windows Setup » (premier lien, ~65 Mo)
+3. Lance le `.exe`. Si une fenêtre te demande un mot de passe administrateur : **Annuler** → l'installeur bascule tout seul en installation « pour moi uniquement », ça marche très bien
+4. L'installeur est bavard (une dizaine d'écrans). Tu fais « Next » partout, **sauf deux écrans** :
+   - **« Choosing the default editor »** → choisis **Notepad** (le défaut, Vim, est un éditeur dont on ne sort pas sans connaître une combinaison de touches particulière)
+   - **« Adjusting the name of the initial branch »** → coche **« Override... use `main` »**
+
+> Si tu as laissé l'éditeur sur Vim par erreur, pas grave, ça se corrige après : `git config --global core.editor notepad`. Dans l'usage prévu ici tu n'y seras de toute façon jamais confronté, c'est Claude qui fait les commits.
+
+**Autre option, winget** (seulement si winget marche déjà sur ta machine - ce n'est pas garanti, voir Dépannage) :
+
 ```powershell
-winget install --id Git.Git -e
+winget install --id Git.Git -e --source winget --accept-source-agreements --accept-package-agreements
 ```
 
 - [ ] Git installé
@@ -55,13 +68,25 @@ L'installeur place `claude.exe` dans `%USERPROFILE%\.local\bin`.
 - [ ] **Ferme et rouvre le terminal**
 - [ ] Vérif : `claude --version` renvoie un numéro de version
 
-**Si `claude` n'est pas reconnu :** le dossier n'est pas dans le PATH. Vérifier avec :
+**Si `claude` n'est pas reconnu :** le dossier n'est pas dans le PATH.
+
+D'abord, vérifie que le programme est bien là :
 
 ```powershell
-$env:PATH -split ';' | Select-String '\.local\\bin'
+Test-Path "$env:USERPROFILE\.local\bin\claude.exe"
 ```
 
-Si ça ne renvoie rien, ajouter `%USERPROFILE%\.local\bin` au PATH utilisateur (Paramètres → Variables d'environnement), puis rouvrir le terminal.
+**Si ça affiche `True`** - c'est juste le PATH. Cette commande l'ajoute pour ton compte (pas besoin d'administrateur) :
+
+```powershell
+[Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path","User") + ";$env:USERPROFILE\.local\bin", "User")
+```
+
+Puis **ferme et rouvre le terminal**, et refais `claude --version`.
+
+**Si ça affiche `False`** - l'installation a échoué en silence. Relance `irm https://claude.ai/install.ps1 | iex` et lis les messages d'erreur.
+
+> À noter : la commande `$env:PATH -split ';' | Select-String '\.local\\bin'` sert seulement à *vérifier* si le chemin est présent, elle n'ajoute rien. C'est la commande `SetEnvironmentVariable` ci-dessus qui corrige le problème.
 
 ### 2.2 Connexion
 
@@ -109,11 +134,23 @@ Add-Content $PROFILE "`nfunction cc { claude --dangerously-skip-permissions @arg
 
 ---
 
-## Phase 3 - Claude finit l'installation
+## Phase 3 - Obsidian, Node, et le clone du vault
 
-C'est le moment où tu arrêtes de taper des commandes.
+### 3.1 Obsidian et Node - à la main (recommandé)
 
-Lance l'agent :
+Deux téléchargements directs, environ 5 minutes. Aucun mot de passe administrateur requis, et ça évite winget qui n'est pas fiable sur toutes les machines.
+
+1. **Obsidian** : https://obsidian.md → « Download for Windows » → lance le `.exe`. **N'ouvre pas Obsidian tout de suite**, on s'en occupe en Phase 4.
+2. **Node.js LTS** : https://nodejs.org → clique le gros bouton **LTS** → lance le `.msi`, puis « Next » partout.
+
+> **Reste devant l'écran.** Le `.msi` de Node peut afficher une fenêtre d'autorisation Windows. Si on te demande un mot de passe administrateur que tu n'as pas, il existe une version portable (`.zip`) sur nodejs.org qui s'en passe - demande de l'aide à ce moment-là.
+
+- [ ] Obsidian installé (pas ouvert)
+- [ ] Node installé
+
+### 3.2 Le clone du vault - par Claude
+
+C'est le moment où tu arrêtes de taper des commandes. Lance l'agent :
 
 ```powershell
 cc
@@ -122,32 +159,22 @@ cc
 Puis **copie-colle ce bloc entier** dans Claude :
 
 ```
-Tu vas finir d'installer mon environnement de travail sur Windows. Procède
-étape par étape, et vérifie chaque étape avant de passer à la suivante.
+Tu vas finir d'installer mon environnement de travail sur Windows.
 
-1. Installe Obsidian :
-   winget install --id Obsidian.Obsidian -e --accept-source-agreements --accept-package-agreements
-
-2. Installe Node.js LTS :
-   winget install --id OpenJS.NodeJS.LTS -e --accept-source-agreements --accept-package-agreements
-
-3. Clone le vault dans mon dossier Documents :
+1. Clone le vault dans mon dossier Documents :
    git clone https://github.com/studio-catapulte/second-cerveau-catapulte.git "$HOME/Documents/Second Cerveau"
 
-4. Vérifie que le dossier "$HOME/Documents/Second Cerveau" contient bien
+2. Vérifie que le dossier "$HOME/Documents/Second Cerveau" contient bien
    0 INBOX, 1 PROJETS, CLAUDE.md, et un dossier .claude/skills avec 14 skills.
 
-Ne lance pas Obsidian, je m'en occupe après.
-
-Ne cherche pas à vérifier que node fonctionne : le PATH de cette session n'est
-pas encore à jour, c'est normal, je vais redémarrer le terminal juste après.
+Obsidian et Node sont déjà installés à la main, ne les réinstalle pas et ne
+cherche pas à vérifier que node fonctionne : le PATH de cette session n'est
+pas à jour, c'est normal, je redémarre le terminal juste après.
 
 Termine par un récapitulatif : ce qui a marché, ce qui a échoué, et ce qu'il
 me reste à faire à la main. Si une commande échoue, dis-le-moi franchement
 plutôt que de chercher un contournement.
 ```
-
-> **Reste devant l'écran pendant cette phase.** Windows peut afficher une fenêtre d'autorisation (UAC) pendant l'installation de Node ou d'Obsidian. Claude ne peut pas la valider à ta place : si rien ne semble avancer, regarde s'il n'y a pas une fenêtre Windows qui attend ton clic, éventuellement derrière ta fenêtre de terminal.
 
 - [ ] Claude a terminé et donné son récapitulatif
 - [ ] Aucune étape signalée en échec
@@ -159,16 +186,29 @@ Puis, **obligatoire** :
 - [ ] Vérif : `node --version` renvoie un numéro de version
 
 <details>
-<summary><strong>Si Claude a coincé : les commandes à faire à la main</strong></summary>
+<summary><strong>Si Claude a coincé sur le clone : la commande à faire à la main</strong></summary>
 
 ```powershell
-winget install --id Obsidian.Obsidian -e
-winget install --id OpenJS.NodeJS.LTS -e
 cd $HOME\Documents
 git clone https://github.com/studio-catapulte/second-cerveau-catapulte.git "Second Cerveau"
 ```
 
-Puis fermer et rouvrir le terminal.
+(Obsidian et Node ont été installés en 3.1 par téléchargement direct.)
+</details>
+
+<details>
+<summary><strong>Si winget fonctionne sur ta machine et que tu préfères laisser Claude tout faire</strong></summary>
+
+Au lieu du 3.1 à la main, ajoute ces deux lignes au bloc collé à Claude, avant le clone :
+
+```
+Installe Obsidian :
+   winget install --id Obsidian.Obsidian -e --accept-source-agreements --accept-package-agreements
+Installe Node.js LTS :
+   winget install --id OpenJS.NodeJS.LTS -e --accept-source-agreements --accept-package-agreements
+```
+
+À ne tenter que si `winget --version` répond et qu'une installation winget a déjà marché sur cette machine.
 </details>
 
 > **Un seul dossier pour tout.** `Second Cerveau` est à la fois ton vault Obsidian (ce que tu vois) et le répertoire depuis lequel l'agent travaille (ce qu'il lit et écrit). Pas de niveau intermédiaire, pas de sous-dossier à ne pas confondre.
@@ -387,7 +427,8 @@ Logge la session, met à jour la mémoire du vault, commit git.
 
 | Symptôme | Cause probable | Correctif |
 |---|---|---|
-| `claude` non reconnu | PATH pas rafraîchi | Fermer/rouvrir le terminal. Sinon ajouter `%USERPROFILE%\.local\bin` au PATH |
+| `winget` échoue (« échec de la recherche de la source ») | Sources winget non initialisées, ou App Installer trop ancien | Ne pas insister : passer par les téléchargements directs (Git, Obsidian et Node ont tous une page de téléchargement). Le correctif `winget source reset` demanderait un mot de passe administrateur. |
+| `claude` non reconnu | PATH pas rafraîchi | Fermer/rouvrir le terminal. Sinon `Test-Path "$env:USERPROFILE\.local\bin\claude.exe"`, puis la commande `SetEnvironmentVariable` de la Phase 2.1 |
 | `cc` non reconnu | Profil PowerShell pas chargé ou terminal pas rouvert | Phase 2.3. Sinon lancer `claude` tout court, ça marche aussi |
 | `irm` non reconnu, ou erreur sur `&&` | Le terminal est en CMD, pas PowerShell | Phase 4.4, régler Lean Terminal sur `powershell.exe` |
 | `node` ou `npx` non reconnu | Terminal pas rouvert après l'install | Fermer et rouvrir le terminal |
