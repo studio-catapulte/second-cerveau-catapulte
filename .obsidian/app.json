@@ -2,7 +2,6 @@
   "userIgnoreFilters": [
     "CLAUDE.md",
     "README.md",
-    "LICENSE",
-    "opencode.json"
+    "LICENSE"
   ]
 }
