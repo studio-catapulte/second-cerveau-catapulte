@@ -21,9 +21,18 @@ Commence par trouver les informations exactes sur le MCP demandé. Ne suppose ri
 
 **Sources à consulter dans l'ordre :**
 
-1. Recherche web avec Firecrawl (`mcp__firecrawl-mcp__firecrawl_search`) : `"<nom> MCP npm package site:npmjs.com OR site:github.com"`
-2. Si un package npm est trouvé, récupère le README via Firecrawl pour avoir la config exacte
+1. Recherche web : `"<nom> MCP npm package site:npmjs.com OR site:github.com"`
+2. Si un package npm est trouvé, récupère son README pour avoir la config exacte
 3. Cherche dans `https://github.com/modelcontextprotocol/servers` si le MCP fait partie des serveurs officiels
+
+> **Quel outil de recherche ?** Utilise Firecrawl (`mcp__firecrawl-mcp__firecrawl_search`) s'il est déjà branché. Sinon — et c'est notamment le cas quand ce skill sert justement à installer Firecrawl — utilise `WebSearch` et `WebFetch`, qui sont natifs et toujours disponibles. Ne bloque jamais l'installation au prétexte que Firecrawl est absent.
+
+**Cas particulier : installer Firecrawl lui-même.** Pas besoin de chercher, la configuration est connue :
+- package : `firecrawl-mcp`
+- variable requise : `FIRECRAWL_API_KEY` (clé commençant par `fc-`, obtenue sur https://firecrawl.dev)
+- commande : `claude mcp add firecrawl --scope user --env FIRECRAWL_API_KEY=<clé> -- npx -y firecrawl-mcp`
+
+Passe directement à l'étape 3.
 
 **Informations à extraire :**
 

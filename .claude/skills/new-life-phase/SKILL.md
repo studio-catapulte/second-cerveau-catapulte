@@ -45,7 +45,7 @@ Avant de passer à la nouvelle phase, faisons le bilan de "[Nom phase actuelle]"
 
 **Crée le fichier bilan** `[N] Bilan.md` dans le dossier de la phase actuelle avec le template `4 TOOLS/Templates/Bilan Phase de vie.md`.
 
-**Marque l'intention comme terminée :** Change `status: "active"` en `status: "completed"`.
+**Marque l'intention comme terminée :** Change `status: active` en `status: completed` (sans guillemets, c'est la forme utilisée dans tous les templates).
 
 ### Étape 3 : Créer la nouvelle phase
 

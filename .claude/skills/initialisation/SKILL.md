@@ -1,9 +1,9 @@
 ---
 name: initialisation
-description: Initialiser le vault Perspectives IA via conversation guidée. Pédagogie IPCRA, décharge projets/casquettes/contexte, dépôt de documents à tout moment (CV, bios, offres écrites), création complète de la structure et des fichiers de contexte personnalisés. Écrit chaque note au fur et à mesure (à la fin de son étape, pas tout à la fin) pour garder une fidélité maximale, puis clôture par une passe de relecture qui vérifie la cohérence et génère les artefacts transversaux (daily note d'init, configs Obsidian).
+description: Initialiser le vault via conversation guidée. Pédagogie IPCRA, décharge projets/casquettes/contexte, dépôt de documents à tout moment (CV, bios, offres écrites), création complète de la structure et des fichiers de contexte personnalisés. Écrit chaque note au fur et à mesure (à la fin de son étape, pas tout à la fin) pour garder une fidélité maximale, puis clôture par une passe de relecture qui vérifie la cohérence et génère les artefacts transversaux (daily note d'init, configs Obsidian).
 ---
 
-# Initialisation du Vault Perspectives IA
+# Initialisation du vault
 
 Tu initialises ce vault avec les informations de l'utilisateur via une conversation guidée. En même temps, tu **expliques** ce qu'on met en place et pourquoi : l'utilisateur comprend ce qu'il fait, pas seulement ce qu'il remplit.
 
@@ -632,8 +632,8 @@ Redémarre Obsidian pour activer les configs de daily/weekly notes.
 ## Règles
 
 - **Écrire au fur et à mesure** : chaque artefact self-contained est écrit à la fin de son étape, depuis la décharge fraîche (voir « Principe transversal »). Ne tiens pas toute la décharge en mémoire jusqu'à la fin.
-- **Demander une validation rapide** après avoir écrit chaque artefact et avant de passer à l'étape suivante (en plus de la validation finale de l'Étape 11).
-- **Toujours demander validation** avant de créer des fichiers (Étape 11)
+- **Demander une validation rapide** après avoir écrit chaque artefact et avant de passer à l'étape suivante. C'est une validation *a posteriori* : on écrit d'abord depuis la décharge fraîche, on fait relire ensuite. Ne pas demander l'autorisation avant d'écrire, ça casse le rythme de la conversation.
+- **Étape 11** = passe de relecture finale sur l'ensemble, pas une demande d'autorisation groupée.
 - **Reformuler** après chaque réponse pour valider la compréhension
 - **Rappeler l'affordance fichier** à chaque grande section (Étapes 3-7)
 - **Lire intégralement** tout fichier déposé avant d'en extraire l'info
