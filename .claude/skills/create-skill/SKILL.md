@@ -106,9 +106,17 @@ Lequel ?
 
 ### Étape 6 : Validation du nom skill
 
-Valide le nom contre la regex Claude Code : `^[a-z0-9]+(-[a-z0-9]+)*$`, 1-64 caractères, pas de `--` consécutifs, pas de `-` au début ou à la fin.
+**a. Format.** Valide le nom contre la regex Claude Code : `^[a-z0-9]+(-[a-z0-9]+)*$`, 1-64 caractères, pas de `--` consécutifs, pas de `-` au début ou à la fin.
 
 Si le nom proposé est invalide, propose une version corrigée (ex : « Post LinkedIn » → `post-linkedin`).
+
+**b. Collision avec une commande native.** Un skill qui porte le nom d'une commande intégrée de Claude Code ne se déclenchera jamais : la native gagne, et l'utilisateur croit que son skill est cassé. Refuse ces noms :
+
+`init`, `config`, `help`, `clear`, `compact`, `review`, `exit`, `quit`, `model`, `login`, `logout`, `cost`, `doctor`, `memory`, `agents`, `mcp`, `resume`, `status`, `statusline`, `vim`, `terminal-setup`, `bug`, `add-dir`, `permissions`, `hooks`, `export`, `rewind`, `usage`, `context`
+
+En cas de collision, propose une alternative explicite plutôt qu'une troncature : `init` → `initialisation`, `review` → `revue-hebdo`, `context` → `contexte-projet`.
+
+**c. Collision avec un skill existant.** Vérifie que `.claude/skills/[nom]/` n'existe pas déjà. Si oui, demande à l'utilisateur s'il veut modifier l'existant ou en créer un nouveau sous un autre nom. Ne l'écrase jamais sans poser la question.
 
 ### Étape 7 : Génération
 
