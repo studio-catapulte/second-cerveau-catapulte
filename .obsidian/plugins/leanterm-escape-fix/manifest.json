@@ -1,0 +1,9 @@
+{
+  "id": "leanterm-escape-fix",
+  "name": "Lean Terminal - Escape Fix",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "description": "Empeche Obsidian de voler la touche Echap quand le focus est dans un terminal Lean Terminal (ex: Claude Code). L'Echap est envoye au terminal, pas a Obsidian.",
+  "author": "Guillaume (patch local)",
+  "isDesktopOnly": true
+}

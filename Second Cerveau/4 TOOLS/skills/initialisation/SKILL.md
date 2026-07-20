@@ -564,8 +564,8 @@ Pour chaque projet :
 **`.obsidian/daily-notes.json`** :
 ```json
 {
-  "folder": "2 CASQUETTES/Sur ma vie/Life Phases/1 [Nom de la phase]",
-  "template": "4 TOOLS/Templates/Daily Note",
+  "folder": "Second Cerveau/2 CASQUETTES/Sur ma vie/Life Phases/1 [Nom de la phase]",
+  "template": "Second Cerveau/4 TOOLS/Templates/Daily Note",
   "autorun": false
 }
 ```
@@ -579,7 +579,7 @@ Pour chaque projet :
   "showWeeklyNote": true,
   "weeklyNoteFormat": "",
   "weeklyNoteTemplate": "4 TOOLS/Templates/Weekly Note",
-  "weeklyNoteFolder": "2 CASQUETTES/Sur ma vie/Life Phases/1 [Nom de la phase]",
+  "weeklyNoteFolder": "Second Cerveau/2 CASQUETTES/Sur ma vie/Life Phases/1 [Nom de la phase]",
   "localeOverride": "system-default"
 }
 ```

@@ -75,8 +75,8 @@ Ajoute la nouvelle phase dans le tableau de `Second Cerveau/2 CASQUETTES/Sur ma 
 **daily-notes.json** - Change le folder :
 ```json
 {
-  "folder": "2 CASQUETTES/Sur ma vie/Life Phases/[N] [Nom]",
-  "template": "4 TOOLS/Templates/Daily Note.md",
+  "folder": "Second Cerveau/2 CASQUETTES/Sur ma vie/Life Phases/[N] [Nom]",
+  "template": "Second Cerveau/4 TOOLS/Templates/Daily Note.md",
   "autorun": false
 }
 ```
@@ -85,7 +85,7 @@ Ajoute la nouvelle phase dans le tableau de `Second Cerveau/2 CASQUETTES/Sur ma 
 ```json
 {
   ...
-  "weeklyNoteFolder": "2 CASQUETTES/Sur ma vie/Life Phases/[N] [Nom]",
+  "weeklyNoteFolder": "Second Cerveau/2 CASQUETTES/Sur ma vie/Life Phases/[N] [Nom]",
   ...
 }
 ```
